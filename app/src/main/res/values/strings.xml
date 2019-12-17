@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FiF</string>
+    <string name="app_subtitle">Fucking invisible Friend</string>
+    <string name="name_title">Nombre</string>
+    <string name="number_title">Número</string>
+    <string name="action_send">Enviar</string>
+</resources>
