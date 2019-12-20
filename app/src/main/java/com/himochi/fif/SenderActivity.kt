@@ -5,15 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.telephony.SmsManager
 import kotlinx.android.synthetic.main.activity_sender.*
 import java.util.*
 import android.util.Log
-import android.widget.Toast
-import android.content.pm.PackageManager
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
-import android.Manifest.permission.SEND_SMS
-import android.telephony.SmsManager
 
 
 class SenderActivity : AppCompatActivity() {
@@ -31,8 +26,6 @@ class SenderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sender)
-        requestSmsPermission()
-
         renderFriends()
         setUpListeners()
     }
@@ -114,22 +107,6 @@ class SenderActivity : AppCompatActivity() {
             "HINT: Just if you feel desperate, DON'T CHEAT! Oki, just a little \uD83D\uDE08 `https://hashtoolkit.com/reverse-hash` copy&paste your code \n \n" +
             "    \uD83D\uDE18 \uD83D\uDE18 \uD83D\uDE18 Love you! \uD83D\uDE18 \uD83D\uDE18 \uD83D\uDE18"
 
-    private fun requestSmsPermission() {
-        if (ContextCompat.checkSelfPermission(this, SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(SEND_SMS), 1)
-        }
-    }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
-                                            grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Awesome! \ud83d\ude01 We aware sending SMS may cost you some money", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "No SMS will be sent, but you still can see the result", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 
 }
