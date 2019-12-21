@@ -1,9 +1,11 @@
-package com.himochi.fif
+package com.himochi.fif.presentation.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.himochi.fif.R
+import com.himochi.fif.data.Friend
 import kotlinx.android.synthetic.main.item_friend.view.*
 
 class FriendsAdapter(private var data: List<Friend>)

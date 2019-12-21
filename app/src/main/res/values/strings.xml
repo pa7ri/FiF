@@ -5,4 +5,5 @@
     <string name="number_title">Phone Nº</string>
     <string name="action_send">Send</string>
     <string name="action_start">Start</string>
+    <string name="error_description">ERROR:  name or number can\'t empty</string>
 </resources>

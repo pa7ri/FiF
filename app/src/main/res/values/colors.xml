@@ -4,7 +4,16 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="teal">#3CACAE</color>
-    <color name="lilac">#EEB5EB</color>
-    <color name="lilac_dark">#eba0e7</color>
+    <color name="teal_light">#62eaff</color>
+    <color name="teal">#2DB7B9</color>
+    <color name="teal_dark">#0087a2</color>
+    <color name="lilac">#ffb2ff</color>
+    <color name="lilac_dark">#b64fc8</color>
+
+    <color name="main_text">#696969</color>
+    <color name="secondary_text">#808080</color>
+    <color name="divider">#DCDCDC</color>
+    <color name="error_text">#f73378</color>
+
+
 </resources>

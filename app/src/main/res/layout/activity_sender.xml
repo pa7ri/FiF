@@ -5,25 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    tools:context=".SenderActivity">
+    tools:context=".presentation.SenderActivity">
+
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:textColor="@android:color/darker_gray"
         android:hint="@string/name_title"
+        android:textColor="@color/secondary_text"
         android:textColorHint="@color/lilac"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_search_contact_action"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_search_contact_action"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:background="@drawable/ic_contacts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/et_number"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:hint="@string/number_title"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/secondary_text"
         android:textColorHint="@color/lilac"
         app:layout_constraintEnd_toStartOf="@+id/bt_add_action"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,28 +48,45 @@
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
     <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="8dp"
+        android:text="@string/error_description"
+        android:textColor="@color/error_text"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_number" />
+
+    <TextView
         android:id="@+id/tv_name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/name_title"
         android:textAllCaps="true"
+        android:textColor="@color/main_text"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_number" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_error" />
 
     <TextView
         android:id="@+id/tv_number_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/number_title"
         android:textAllCaps="true"
+        android:textColor="@color/main_text"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_number" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_error" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_friends"
@@ -84,7 +111,6 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

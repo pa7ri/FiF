@@ -1,4 +1,4 @@
-package com.himochi.fif
+package com.himochi.fif.data
 
 data class Friend(
         var name: String,

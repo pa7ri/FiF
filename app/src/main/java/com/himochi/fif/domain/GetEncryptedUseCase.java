@@ -1,27 +1,25 @@
-package com.himochi.fif;
+package com.himochi.fif.domain;
+
+import android.util.Log;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class BuildAlgorithm {
+public class GetEncryptedUseCase {
     public String getEncripted(String s, String alg) {
         try {
             MessageDigest digest = java.security.MessageDigest.getInstance(alg);
             digest.update(s.getBytes());
             byte[] messageDigest = digest.digest();
-
             return bytesToHex(messageDigest);
-
-            /*StringBuilder hexString = new StringBuilder();
-            for (byte b : messageDigest) hexString.append(Integer.toHexString(0xFF & b));
-
-            return hexString.toString();*/
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            Log.e("ERROR BUILDING ALG", e.getMessage());
         }
         return "";
     }
+
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
+
     private static String bytesToHex(byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
         for (int j = 0; j < bytes.length; j++) {

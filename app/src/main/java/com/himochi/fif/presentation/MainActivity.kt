@@ -1,4 +1,4 @@
-package com.himochi.fif
+package com.himochi.fif.presentation
 
 import android.Manifest
 import android.content.Intent
@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat
 import android.view.animation.AlphaAnimation
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import com.himochi.fif.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
