@@ -4,21 +4,19 @@ import com.himochi.fif.data.AlgorithmType
 import com.himochi.fif.data.Friend
 import com.himochi.fif.domain.GetEncryptedUseCase
 import java.util.*
-import javax.inject.Inject
 
-class SenderPresenter @Inject constructor(
+class SenderPresenter(
+        private val view: SenderView,
         private val getEncryptedUseCase: GetEncryptedUseCase
 ) {
 
-    lateinit var view: SenderView
     private val friends: MutableList<Friend> = mutableListOf()
     private val algorithmList: List<Pair<AlgorithmType, String>> = listOf(
             Pair(AlgorithmType.MD5, "-- -.. ....."),
             Pair(AlgorithmType.SHA1, "... .... .- .----"),
             Pair(AlgorithmType.SHA256, "... .... .- ..--- ..... -...."))
 
-    fun start(sendView: SenderView) {
-        view = sendView
+    fun start() {
         view.setUpListeners()
         view.renderFriends(friends)
     }

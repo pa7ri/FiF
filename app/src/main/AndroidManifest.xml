@@ -11,9 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_fif_round"
         android:supportsRtl="true"
+        android:name=".BaseApplication"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".presentation.SenderActivity"></activity>
-        <activity android:name=".presentation.MainActivity">
+        <activity
+            android:noHistory="true"
+            android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

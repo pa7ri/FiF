@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.telephony.SmsManager
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -19,20 +21,32 @@ import kotlinx.android.synthetic.main.activity_sender.et_name
 import kotlinx.android.synthetic.main.activity_sender.et_number
 import kotlinx.android.synthetic.main.activity_sender.rv_friends
 import kotlinx.android.synthetic.main.activity_sender.tv_error
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class SenderActivity : AppCompatActivity(), SenderView {
 
-    @Inject
-    lateinit var presenter: SenderPresenter
+    private val presenter: SenderPresenter by inject { parametersOf(this) }
 
+    private val textWatcher = object: TextWatcher{
+        override fun afterTextChanged(p0: Editable?) { }
+
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            hideErrorFriend()
+        }
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sender)
-        presenter.start(this)
+        presenter.start()
     }
 
     override fun setUpListeners() {
+        et_name.addTextChangedListener(textWatcher)
+        et_number.addTextChangedListener(textWatcher)
         bt_add_action.setOnClickListener {
             presenter.onAddFriendSelected(Friend(et_name.text.toString(), et_number.text.toString(), false, ""))
         }
