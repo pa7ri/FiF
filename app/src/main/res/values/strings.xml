@@ -2,8 +2,10 @@
     <string name="app_name">FiF</string>
     <string name="app_subtitle">Fucking invisible Friend</string>
     <string name="name_title">Name</string>
-    <string name="number_title">Phone Nº</string>
+    <string name="number_title">Phone number</string>
     <string name="action_send">Send</string>
     <string name="action_start">Start</string>
     <string name="error_description">ERROR:  name or number can\'t empty</string>
+    <string name="action_add">Add friend</string>
+    <string name="new_friend_title">New friend</string>
 </resources>

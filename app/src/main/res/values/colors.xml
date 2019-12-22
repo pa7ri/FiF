@@ -13,6 +13,7 @@
     <color name="main_text">#696969</color>
     <color name="secondary_text">#808080</color>
     <color name="divider">#DCDCDC</color>
+    <color name="background">#F5F5F5</color>
     <color name="error_text">#f73378</color>
 
 

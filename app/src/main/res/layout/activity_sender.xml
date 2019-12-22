@@ -4,53 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F0F0"
+    android:background="@color/background"
     tools:context=".presentation.SenderActivity">
 
 
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:background="@android:color/background_light"
-        android:hint="@string/name_title"
-        android:layout_marginHorizontal="20dp"
+    <TextView
+        android:id="@+id/tv_new_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/secondary_text"
-        android:textColorHint="@color/secondary_text"
-        app:layout_constraintEnd_toStartOf="@+id/bt_search_contact_action"
+        android:text="@string/new_friend_title"
+        android:textAllCaps="true"
+        android:textColor="@color/main_text"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/bt_search_contact_action"
-        android:layout_width="55dp"
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/ic_contacts"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_background"
+        android:hint="@string/name_title"
+        android:paddingHorizontal="10dp"
+        android:textColor="@color/secondary_text"
+        android:textColorHint="@color/secondary_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_new_friend" />
 
+
+    <ImageView
+        android:id="@+id/bt_search_contact_action"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:alpha="0.5"
+        android:background="@drawable/ic_contacts"
+        app:layout_constraintBottom_toBottomOf="@+id/et_name"
+        app:layout_constraintEnd_toEndOf="@+id/et_name"
+        app:layout_constraintTop_toTopOf="@+id/et_name" />
 
     <EditText
         android:id="@+id/et_number"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/round_background"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="25dp"
         android:hint="@string/number_title"
+        android:paddingHorizontal="10dp"
         android:textColor="@color/secondary_text"
         android:textColorHint="@color/secondary_text"
-        app:layout_constraintEnd_toStartOf="@+id/bt_add_action"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
-
-    <Button
-        android:id="@+id/bt_add_action"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:background="@drawable/ic_add"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
     <TextView
@@ -107,7 +116,7 @@
 
     <Button
         android:id="@+id/bt_send_action"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/teal"
         android:gravity="center"
@@ -117,6 +126,47 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_add_action" />
+
+    <Button
+        android:id="@+id/bt_add_action"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/lilac_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/action_add"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_send_action"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_empty_friend_list"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="@mipmap/omg_emoji"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_friends"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rv_friends"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/tv_empty_friend_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="No friends added yet"
+        android:textColor="@color/main_text"
+        app:layout_constraintEnd_toEndOf="@+id/rv_friends"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/rv_friends"
+        app:layout_constraintTop_toBottomOf="@+id/iv_empty_friend_list" />
 
 </android.support.constraint.ConstraintLayout>

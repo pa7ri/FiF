@@ -14,20 +14,12 @@ import android.widget.Toast
 import com.himochi.fif.R
 import com.himochi.fif.data.Friend
 import com.himochi.fif.presentation.adapter.FriendsAdapter
-import kotlinx.android.synthetic.main.activity_sender.bt_add_action
-import kotlinx.android.synthetic.main.activity_sender.bt_search_contact_action
-import kotlinx.android.synthetic.main.activity_sender.bt_send_action
-import kotlinx.android.synthetic.main.activity_sender.et_name
-import kotlinx.android.synthetic.main.activity_sender.et_number
-import kotlinx.android.synthetic.main.activity_sender.rv_friends
-import kotlinx.android.synthetic.main.activity_sender.tv_error
+import kotlinx.android.synthetic.main.activity_sender.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
 class SenderActivity : AppCompatActivity(), SenderView {
-
     private val presenter: SenderPresenter by inject { parametersOf(this) }
-
     private val textWatcher = object: TextWatcher{
         override fun afterTextChanged(p0: Editable?) { }
 
@@ -62,6 +54,7 @@ class SenderActivity : AppCompatActivity(), SenderView {
         rv_friends.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_friends.addItemDecoration(DividerItemDecoration(this, ClipDrawable.HORIZONTAL))
         rv_friends.adapter = FriendsAdapter(friends)
+        checkFriendListData(friends)
     }
 
     override fun showErrorFriend() {
@@ -92,5 +85,29 @@ class SenderActivity : AppCompatActivity(), SenderView {
         }
     }
 
+    override fun renderSendSmsWarning() {
+        Toast.makeText(this, "Message has been sent, but playing FiF with 2 friends loses magic \uD83D\uDE05", Toast.LENGTH_SHORT).show()
+    }
 
+    override fun renderSendSmsError() {
+        Toast.makeText(this, "FiF can't be played with only 0 or 1 friends \uD83D\uDE14", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun checkFriendListData(friends: List<Friend>) {
+        if(friends.isEmpty()) {
+            showEmptyFriendList()
+        } else {
+            hideEmptyFriendList()
+        }
+    }
+
+    private fun showEmptyFriendList() {
+        iv_empty_friend_list.visibility = View.VISIBLE
+        tv_empty_friend_list.visibility = View.VISIBLE
+    }
+
+    private fun hideEmptyFriendList() {
+        iv_empty_friend_list.visibility = View.GONE
+        tv_empty_friend_list.visibility = View.GONE
+    }
 }

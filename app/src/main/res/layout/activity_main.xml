@@ -48,7 +48,7 @@
         android:id="@+id/tv_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lilac"
+        android:background="@color/lilac_dark"
         android:text="@string/action_start"
         android:padding="10dp"
         android:textSize="18dp"

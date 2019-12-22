@@ -10,4 +10,6 @@ interface SenderView {
     fun updateFriends(friends: List<Friend>)
     fun clearFriend()
     fun sendMultipleSms(friend: Friend, msg: String)
+    fun renderSendSmsWarning()
+    fun renderSendSmsError()
 }

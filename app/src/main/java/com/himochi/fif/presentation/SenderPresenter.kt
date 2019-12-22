@@ -26,15 +26,22 @@ class SenderPresenter(
             view.hideErrorFriend()
             friends.add(friend)
             view.renderFriends(friends)
+            view.clearFriend()
         } else {
             view.showErrorFriend()
         }
     }
 
     fun onSendSelected() {
-        assignRandomFriend()
-        friends.forEach {
-            view.sendMultipleSms(it, buildMessage(it))
+        when(friends.size) {
+            0,1 -> view.renderSendSmsError()
+            2 -> view.renderSendSmsWarning()
+            else -> {
+                assignRandomFriend()
+                friends.forEach {
+                    view.sendMultipleSms(it, buildMessage(it))
+                }
+            }
         }
     }
 
