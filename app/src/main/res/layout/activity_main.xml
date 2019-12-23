@@ -37,7 +37,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginHorizontal="55dp"
         android:gravity="center"
-        android:text="Make your invisible friend easier sending each random assigned via SMS"
+        android:text="Make your Secret Pal easier sending each random assigned via SMS"
         android:textSize="16dp"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"

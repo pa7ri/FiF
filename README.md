@@ -4,9 +4,24 @@
 
 ---
 
-## FiF - Invisible Friend
-Easy to use android app to assign random invisible friend via sms
-> Be aware that using this app may cost you some money depending on your phone rate
+## FiF : Random assignation for your Secret Pal
+FiF will simply the way you make secret pal lottery without meeting. To make it a bit funnier, assigned friend name is encrypted using one of the following algorithms (so far):
+- MD5
+- SHA-1
+- SHA-256
+
+Please, before using it, be aware of the following considerations:
+1. This app notify your friends using generic SMS so it may cost you some money depending on your phone rate
+2. It's guaranteed that any personal information will be used only locally for immediate purposes, without being stored in any remote storage. It can be checked in the code : `.presentation.SenderActivity`
+
+---
+### Contributing
+
+Any found issue or new features will be welcome. Please tag it :
+- ![#ffd271](https://placehold.it/15/ffd271/000000?text=+) Minor issue
+- ![#f65c78](https://placehold.it/15/f65c78/000000?text=+) High priority issue
+- ![#46b5d1](https://placehold.it/15/46b5d1/000000?text=+) New feature
+
 ---
 ### License
 
