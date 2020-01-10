@@ -20,7 +20,7 @@ Please, before using it, be aware of the following considerations:
 Any found issue or new features will be welcome. Please tag it :
 - ![#ffd271](https://placehold.it/15/ffd271/000000?text=+) Minor issue
 - ![#f65c78](https://placehold.it/15/f65c78/000000?text=+) High priority issue
-- ![#46b5d1](https://placehold.it/15/46b5d1/000000?text=+) New feature
+- ![#a2eeef](https://placehold.it/15/46b5d1/000000?text=+) Enhancement
 
 ---
 ### License
